@@ -1,0 +1,63 @@
+# ruff.toml
+target-version = "py312"
+line-length = 88
+
+# Respect common folders
+exclude = [
+  ".venv",
+  "venv",
+  "__pycache__",
+  ".git",
+  ".mypy_cache",
+  ".ruff_cache",
+  "build",
+  "dist"
+]
+
+[lint]
+# Rule sets to enable
+select = [
+  "E",    # pycodestyle errors
+  "F",    # pyflakes
+  "W",    # pycodestyle warnings
+  "I",    # isort
+  "B",    # flake8-bugbear
+  "UP",   # pyupgrade
+  "SIM",  # flake8-simplify
+  "C4",   # flake8-comprehensions
+  "RET",  # flake8-return
+  "PIE",  # flake8-pie
+]
+
+# Rules to ignore (intentional & practical)
+ignore = [
+  #"E501",   # line length (formatter handles this)
+  #"B008",   # function calls in defaults (common in FastAPI, etc.)
+  #"RET505", # unnecessary else after return (sometimes clearer)
+]
+
+# Allow unused variables like `_`
+dummy-variable-rgx = "^_+$"
+
+[lint.isort]
+known-first-party = ["src"]
+combine-as-imports = true
+force-sort-within-sections = true
+
+[lint.per-file-ignores]
+# Tests are allowed to be looser
+"tests/**/*.py" = [
+  "S101",   # assert allowed
+  "F811",   # redefinition (pytest fixtures)
+]
+
+# If you use scripts
+"scripts/**/*.py" = ["T201"]
+
+[format]
+# Ruff formatter (replaces Black)
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+

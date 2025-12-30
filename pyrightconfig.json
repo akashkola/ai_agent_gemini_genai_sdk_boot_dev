@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/pyright/main/packages/vscode-pyright/pyright.schema.json",
+
+  "venvPath": ".",
+  "venv": ".venv",
+
+  "typeCheckingMode": "standard",
+
+  "reportMissingTypeStubs": false,
+  "reportUnknownMemberType": false,
+  "reportUnknownVariableType": false,
+  "reportUnknownParameterType": false,
+
+  "reportImplicitOverride": true,
+  "reportIncompatibleMethodOverride": true,
+  "reportMissingImports": true,
+
+  "reportUnusedImport": true,
+  "reportUnusedFunction": false,
+  "reportUnusedVariable": false,
+
+  "pythonVersion": "3.12",
+  "pythonPlatform": "All"
+}
+
