@@ -1,6 +1,7 @@
 from typing import Optional
 from google.genai import types
 
+from config import WORKSPACE_DIR
 from functions.function_interface import CodingToolFunctionInterface
 from functions.get_file_content import GetFileContentFunction
 from functions.get_files_info import GetFilesInfoFunction
@@ -10,7 +11,7 @@ from functions.write_file import WriteFileFunction
 
 
 def call_function(function_call_part: types.FunctionCall) -> types.Content:
-    working_directory = "calculator"
+    working_directory = WORKSPACE_DIR
 
     coding_tool_function: Optional[CodingToolFunctionInterface] = None
 
