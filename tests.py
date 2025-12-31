@@ -1,3 +1,4 @@
+from ntpath import isdir
 import os
 import shutil
 
@@ -87,7 +88,8 @@ def test_write_file():
     print(content.parts[0].function_response.response["result"])
 
     # case 2
-    shutil.rmtree(os.path.join(working_dir, "non_existing"))
+    if os.path.isdir(os.path.join(working_dir, "non_existing")):
+        shutil.rmtree(os.path.join(working_dir, "non_existing"))
     content: types.Content = function.handle_function_call(
         args={
             WriteFileFunction.file_path_key: "non_existing/lorem.txt",
